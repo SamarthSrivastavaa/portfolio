@@ -49,7 +49,13 @@ const Landing = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.25, ease: [0.22, 0.61, 0.36, 1] }}
             >
-              <p><span className='tracking-[6px] text-cyan-200'>FullStack Dev</span>  <span className='ml-[6px] mr-[6px]'>||</span> <span className=' tracking-[6px] text-cyan-200'>   App Dev</span>  <span className='ml-[6px] mr-[6px]'>||</span> <span className='tracking-[6px] text-cyan-200'> Blockchain Dev </span></p>
+              <p>
+                <span className='tracking-[6px] text-cyan-200 inline-block transition-transform duration-150 ease-out hover:scale-[1.04]'>FullStack Dev</span>
+                <span className='ml-[6px] mr-[6px]'>||</span>
+                <span className='tracking-[6px] text-cyan-200 inline-block transition-transform duration-150 ease-out hover:scale-[1.04]'>App Dev</span>
+                <span className='ml-[6px] mr-[6px]'>||</span>
+                <span className='tracking-[6px] text-cyan-200 inline-block transition-transform duration-150 ease-out hover:scale-[1.04]'>Blockchain Dev</span>
+              </p>
             </motion.div>
           </div>
 
@@ -81,7 +87,7 @@ const RightCardStack = () => {
       {/* Socials card'll be (behind by default) */}
       <button
         onClick={() => setFront('socials')}
-        className={`${commonCard} ${cardSize} ${front === 'socials' ? 'z-20 rotate-[-2deg] translate-x-[18px] translate-y-[8px]' : 'z-10 rotate-[-8deg] -translate-x-[6px] translate-y-[24px] opacity-80 hover:opacity-100 border-cyan-200/70 shadow-[0_0_32px_rgba(165,243,252,0.35)]'} transition-transform duration-300 ease-out`}
+        className={`${commonCard} ${cardSize} ${front === 'socials' ? 'z-20 rotate-[-2deg] translate-x-[18px] translate-y-[8px]' : 'z-10 rotate-[-8deg] -translate-x-[6px] translate-y-[24px] opacity-80 hover:opacity-100 border-cyan-200/70 shadow-[0_0_32px_rgba(165,243,252,0.35)]'} transition-transform duration-300 ease-out hover:scale-[1.02]`}
         aria-label="Show socials card"
       >
         <div className="p-6 flex flex-col h-full">
@@ -107,7 +113,7 @@ const RightCardStack = () => {
       {/* Resume card gotta be (front by default) */}
       <button
         onClick={() => setFront('resume')}
-        className={`${commonCard} ${cardSize} ${front === 'resume' ? 'z-30 rotate-[4deg] -translate-x-[6px]' : 'z-10 rotate-[10deg] translate-x-[24px] translate-y-[14px] opacity-80 hover:opacity-100 border-cyan-200/70 shadow-[0_0_32px_rgba(165,243,252,0.35)]'} transition-transform duration-300 ease-out`}
+        className={`${commonCard} ${cardSize} ${front === 'resume' ? 'z-30 rotate-[4deg] -translate-x-[6px]' : 'z-10 rotate-[10deg] translate-x-[24px] translate-y-[14px] opacity-80 hover:opacity-100 border-cyan-200/70 shadow-[0_0_32px_rgba(165,243,252,0.35)]'} transition-transform duration-300 ease-out hover:scale-[1.02]`}
         aria-label="Show resume card"
       >
         <div className="p-6 flex flex-col h-full">
