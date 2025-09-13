@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Remove default browser margins so header spans full width */
+html, body, #root { height: 100%; }
+body { margin: 0; }
+/* Ensure no white gaps around scaled content */
+html, body { background-color: #000; }
+body { overflow-x: hidden; }
+
+/* Global scaling to match development at 80% Chrome zoom */
+:root { --app-zoom: 0.8; }
+body { zoom: var(--app-zoom); }
+
+/* Fallback for browsers that don't support zoom (e.g., Firefox) */
+@supports not (zoom: 1) {
+  #root {
+    transform: scale(var(--app-zoom));
+    transform-origin: top left;
+    width: calc(100% / var(--app-zoom));
+    height: calc(100% / var(--app-zoom));
+  }
+}
