@@ -4,7 +4,7 @@ import { Timeline } from '../components/ui/timeline'
 
 const About = () => {
   return (
-    <div className="relative min-h-screen flex flex-col w-full bg-black text-white">
+    <div className="relative flex flex-col w-full bg-black text-white">
    
       <div
         aria-hidden="true"
@@ -23,11 +23,10 @@ const About = () => {
 
 
       <div className="relative z-10 flex-1 flex flex-col">
-        <div className="flex-1 px-6 pt-44 pb-12">
+        <div className="flex-1 px-6 pt-24 pb-8">
           <div className="w-full ml-20">
-            {/* Header Section */}
             <motion.div
-              className="mb-20 transform ml-4 sm:ml-6 md:ml-8"
+              className="mb-12 transform ml-4 sm:ml-6 md:ml-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
@@ -43,7 +42,7 @@ const About = () => {
               <div className="max-w-3xl ml-4 sm:ml-6 md:ml-8 flex-1">
         
               <motion.div
-                className="mb-12"
+                className="mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
@@ -74,7 +73,7 @@ const About = () => {
               </motion.div>
 
               <motion.div
-                className="mb-12"
+                className="mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 0.61, 0.36, 1] }}
@@ -109,7 +108,7 @@ const About = () => {
               </motion.div>
 
               <motion.div
-                className="mb-12"
+                className="mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.6, ease: [0.22, 0.61, 0.36, 1] }}

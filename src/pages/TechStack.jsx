@@ -58,7 +58,7 @@ const TechStack = () => {
   ]
 
   return (
-    <div className="relative min-h-screen flex flex-col w-full bg-black text-white">
+    <div className="relative flex flex-col w-full bg-black text-white">
       {/* Same background as other pages */}
       <div
         aria-hidden="true"
@@ -76,11 +76,11 @@ const TechStack = () => {
       />
 
       <div className="relative z-10 flex-1 flex flex-col">
-        <div className="flex-1 px-6 pt-44 pb-12">
+        <div className="flex-1 px-6 pt-24 pb-8">
           <div className="w-full ml-20">
-            {/* Header Section - Left Aligned */}
+         
             <motion.div
-              className="mb-20 transform ml-4 sm:ml-6 md:ml-8"
+              className="mb-12 transform ml-4 sm:ml-6 md:ml-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
@@ -124,9 +124,9 @@ const TechStack = () => {
               </div>
               
               {/* Content */}
-              <div className="relative z-10 py-16">
+              <div className="relative z-10 py-12">
               {/* First Row - 7 icons */}
-              <div className="flex justify-center mb-16">
+              <div className="flex justify-center mb-12">
                 <div className="grid grid-cols-7 gap-12">
                 {techCategories.flatMap(category => category.techs).slice(0, 7).map((tech, index) => (
                   <motion.div
@@ -201,7 +201,7 @@ const TechStack = () => {
               </div>
 
               {/* Second Row - 8 icons */}
-              <div className="flex justify-center mb-16">
+              <div className="flex justify-center mb-12">
                 <div className="grid grid-cols-8 gap-12">
                 {techCategories.flatMap(category => category.techs).slice(7, 15).map((tech, index) => (
                   <motion.div
@@ -354,7 +354,7 @@ const TechStack = () => {
 
             {/* Bottom Section */}
             <motion.div
-              className="mt-20 text-center"
+              className="mt-12 text-center"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
