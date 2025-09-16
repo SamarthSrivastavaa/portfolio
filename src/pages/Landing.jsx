@@ -1,41 +1,67 @@
 import React, { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import Navbar from '../components/Navbar'
+import { Button } from '../components/ui/moving-border'
 
 const Landing = () => {
   return (
-    <div className="min-h-screen flex flex-col w-full bg-black text-white"> {/*bg-[#22242E] */}
+    <div className="relative min-h-screen flex flex-col w-full bg-black text-white"> {/*bg-neutral slate*/}
+      <div
+        aria-hidden="true"
+        className="fixed inset-0 z-0 pointer-events-none"
+        style={{
+          background: "#000000",
+          backgroundImage: `
+            radial-gradient(circle at 1px 1px, rgba(139, 92, 246, 0.2) 1px, transparent 0),
+            radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.18) 1px, transparent 0),
+            radial-gradient(circle at 1px 1px, rgba(236, 72, 153, 0.15) 1px, transparent 0)
+          `,
+          backgroundSize: "20px 20px, 30px 30px, 25px 25px",
+          backgroundPosition: "0 0, 10px 10px, 15px 5px",
+        }}
+      />
+      <div className="relative z-10 flex-1 flex flex-col">
       <div className="w-full px-6">
         <Navbar />
       </div>
 
-      <div className='w-full mt-20'>
-        <div className='w-full px-6 flex items-center'>
-          <div className='ml-6 hidden sm:block flex-1 mr-6'>
-            <div className='h-[2px] bg-gradient-to-r from-gray-400/40 via-gray-300/25 to-transparent shadow-[0_0_12px_2px_rgba(56,189,248,0.25)]'></div>
-          </div>
-          <div className='text-[28px] text-cyan-300 font-bold tracking-wider font-poppins'>
-            <Typewriter text={"  hey there, I'm SAMARTH SRIVASTAVA"} speed={22} className='inline-block hover:text-white hover:border-white transition-colors duration-200' />
-          </div>
-          <div className='flex-1'></div>
+      <div className='w-full mt-16'>
+        <div className='w-full px-6 flex items-center justify-center'>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
+          >
+            <Button
+              borderRadius="1.75rem"
+              className="bg-slate-900/[0.8] border border-slate-800 text-white text-lg font-semibold tracking-wider h-20 w-96"
+              containerClassName="h-20 w-96"
+              borderClassName="h-20 w-20 opacity-[0.8] bg-[radial-gradient(var(--amber-500)_40%,transparent_60%)]"
+              duration={3000}
+            >
+              Hey there, I'm SAMARTH SRIVASTAVA
+            </Button>
+          </motion.div>
         </div>
       </div>
 
-      <div className="mt-24 ml-24 mr-24">
-        <div className="w-full flex items-start gap-10">
+      <div className="px-6 flex-1">
+        <div className="w-full ml-20 flex items-center ">
           {/* Left: Headings */}
-          <div className="flex-1">
-            <div className="bg-black space-y-6 tracking-[12px]">
+          <div className="flex-1 transform ml-4 sm:ml-6 md:ml-8 -translate-y-8 lg:-translate-y-[20px]">
+            <div className="bg-transparent space-y-6 tracking-[8px]">
               <motion.p
-                className="text-orange-400 text-[150px] font-black font-sans leading-none"
+                className="text-sky-300 text-[71px] sm:text-[103px] md:text-[135px] font-extrabold font-mono leading-[0.9] drop-shadow-[0_2px_0_rgba(0,0,0,0.25)]"
+                style={{WebkitTextStroke: '2px white', textStroke: '2px white'}}
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.35, delay: 0.05, ease: [0.22, 0.61, 0.36, 1] }}
               >
-                a web & app
+                A web & app
               </motion.p>
               <motion.p
-                className="text-white text-[150px] font-black font-sans leading-none"
+                className="text-sky-300 text-[71px] sm:text-[103px] md:text-[135px] font-extrabold font-mono leading-[0.9]"
+                style={{WebkitTextStroke: '2px white', textStroke: '2px white'}}
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.35, delay: 0.15, ease: [0.22, 0.61, 0.36, 1] }}
@@ -44,23 +70,24 @@ const Landing = () => {
               </motion.p>
             </div>
             <motion.div
-              className='mt-20 text-[25px]'
+              className='mt-10 text-[25px] sm:text-[27px] text-slate-300'
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.25, ease: [0.22, 0.61, 0.36, 1] }}
             >
               <p>
-                <span className='tracking-[6px] text-cyan-200 inline-block transition-transform duration-150 ease-out hover:scale-[1.04]'>FullStack Dev</span>
-                <span className='ml-[6px] mr-[6px]'>||</span>
-                <span className='tracking-[6px] text-cyan-200 inline-block transition-transform duration-150 ease-out hover:scale-[1.04]'>App Dev</span>
-                <span className='ml-[6px] mr-[6px]'>||</span>
-                <span className='tracking-[6px] text-cyan-200 inline-block transition-transform duration-150 ease-out hover:scale-[1.04]'>Blockchain Dev</span>
+                <span className='tracking-[3px] text-white inline-block'>FullStack Dev</span>
+                <span className='ml-[6px] mr-[6px] text-slate-400/80'> | </span>
+                <span className='tracking-[3px] text-white inline-block'>App Dev</span>
+                <span className='ml-[6px] mr-[6px] text-slate-400/80'> | </span>
+                <span className='tracking-[3px] text-white inline-block'>  Blockchain Dev</span>
               </p>
             </motion.div>
           </div>
 
           {/* Right: Interactive Card Stack */}
           <motion.div
+            className='mt-5 sm:mt-10 md:mt-20 lg:mt-20 mr-[250px] -translate-y-4'
             initial={{ opacity: 0, y: 12, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ duration: 0.35, delay: 0.35, ease: [0.22, 0.61, 0.36, 1] }}
@@ -69,8 +96,9 @@ const Landing = () => {
           </motion.div>
         </div>
       </div>
+      </div>
         
-
+      
     </div>
   )
 }
@@ -84,7 +112,7 @@ const RightCardStack = () => {
 
   return (
     <div className="relative w-[420px] h-[560px] -mt-[24px] -ml-[20px]">
-      {/* Socials card'll be (behind by default) */}
+   
       <button
         onClick={() => setFront('socials')}
         className={`${commonCard} ${cardSize} ${front === 'socials' ? 'z-20 rotate-[-2deg] translate-x-[18px] translate-y-[8px]' : 'z-10 rotate-[-8deg] -translate-x-[6px] translate-y-[24px] opacity-80 hover:opacity-100 border-cyan-200/70 shadow-[0_0_32px_rgba(165,243,252,0.35)]'} transition-transform duration-300 ease-out hover:scale-[1.02]`}
@@ -110,7 +138,7 @@ const RightCardStack = () => {
         </div>
       </button>
 
-      {/* Resume card gotta be (front by default) */}
+     
       <button
         onClick={() => setFront('resume')}
         className={`${commonCard} ${cardSize} ${front === 'resume' ? 'z-30 rotate-[4deg] -translate-x-[6px]' : 'z-10 rotate-[10deg] translate-x-[24px] translate-y-[14px] opacity-80 hover:opacity-100 border-cyan-200/70 shadow-[0_0_32px_rgba(165,243,252,0.35)]'} transition-transform duration-300 ease-out hover:scale-[1.02]`}
@@ -132,13 +160,13 @@ const RightCardStack = () => {
               and design web and mobile apps, and am currently working across
               blockchain projects as well.
             </p>
-            <p className="text-orange-300 mt-4 text-sm opacity-80">
+            <p className="text-yellow-300 mt-4 text-sm opacity-80">
               Blockchains: EVM chains, Solana
             </p>
-            <p className="text-orange-300 mt-4 text-sm opacity-80">
+            <p className="text-yellow-300 mt-4 text-sm opacity-80">
               Web: MERN ,Next.js, Nest.Js
             </p>
-            <p className="text-orange-300 mt-4 text-sm opacity-80">
+            <p className="text-yellow-300 mt-4 text-sm opacity-80">
               App: React Native
             </p>
           </div>
@@ -161,26 +189,5 @@ const RightCardStack = () => {
   )
 }
 
-// Simple typewriter text component
-const Typewriter = ({ text, speed = 24, className = '' }) => {
-  const [displayed, setDisplayed] = useState('')
-
-  useEffect(() => {
-    let index = 0
-    setDisplayed('')
-    const timer = setInterval(() => {
-      setDisplayed(prev => prev + text.charAt(index))
-      index += 1
-      if (index >= text.length) {
-        clearInterval(timer)
-      }
-    }, speed)
-    return () => clearInterval(timer)
-  }, [text, speed])
-
-  return (
-    <span className={className}>{displayed}</span>
-  )
-}
 
 export default Landing
