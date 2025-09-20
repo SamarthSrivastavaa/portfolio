@@ -31,7 +31,7 @@ const Landing = () => {
             Hi, I'm Samarth
           </h1>
           <p className="text-xl md:text-2xl text-gray-400 leading-relaxed max-w-3xl">
-            A Full Stack Developer passionate about crafting seamless digital experiences
+            A Full Stack & Blockchain Developer experienced in crafting and shipping apps with modern technologies.
           </p>
         </motion.div>
 
@@ -46,11 +46,15 @@ const Landing = () => {
             I specialize in building web apps with{' '}
             <span className="text-blue-400 font-semibold">React</span>,{' '}
             <span className="text-yellow-400 font-semibold">JavaScript</span>,{' '}
+            <span className="text-pink-400 font-semibold">Next.js</span>,{' '}
             <span className="text-cyan-400 font-semibold">Tailwind CSS</span>,{' '}
-            <span className="text-green-400 font-semibold">Node.js</span> and more.
+            <span className="text-green-400 font-semibold">Node.js</span> and exploring the exciting world of{' '}
+            <span className="text-purple-400 font-semibold">Web3</span> with hands-on experience in{' '}
+            <span className="text-gray-300 font-semibold">Solidity</span> and currently working on{' '}
+            <span className="text-purple-400 font-semibold">Solana</span> development.
           </p>
           <p className="text-gray-400">
-            Always excited to tackle new challenges where I can create value and grow as a coder. Let's connect if you've got a project that could use my skills!
+            Passionate about bridging traditional web development with decentralized technologies. Always excited to tackle new challenges where I can create value and grow as a developer!
           </p>
         </motion.div>
 
@@ -63,11 +67,8 @@ const Landing = () => {
           <button
             className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-blue-500/25"
             onClick={() => {
-              // Create and download resume
-              const link = document.createElement('a')
-              link.href = '/resume.pdf' // You'll need to add your resume PDF to the public folder
-              link.download = 'Samarth_Srivastava_Resume.pdf'
-              link.click()
+              // Open resume in new tab
+              window.open('/SamarthResume.pdf', '_blank')
             }}
           >
             Resume

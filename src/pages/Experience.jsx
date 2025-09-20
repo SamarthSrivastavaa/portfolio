@@ -5,12 +5,12 @@ const Experience = () => {
   const experiences = [
     {
       id: 1,
-      title: "Full Stack Intern",
-      company: "CareSphere",
+      title: "Full Stack",
+      company: "Internship",
       period: "September 2025",
       type: "Upcoming",
-      description: "Upcoming internship focused on full-stack development, working on healthcare technology solutions and patient care platforms.",
-      skills: ["React", "Node.js", "Healthcare Tech", "Full Stack Development"]
+      description: "",
+      skills: ["React", "Nest.js", "Full Stack Development"]
     }
   ]
 
