@@ -20,11 +20,11 @@ const Navbar = () => {
   }
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
-      <div className="max-w-6xl mx-auto px-6 py-4">
+    <div className="fixed top-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-5xl px-4">
+      <div className="bg-gray-900/95 backdrop-blur-md border border-gray-700/50 rounded-2xl px-8 py-4 shadow-xl shadow-black/20">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center justify-center w-10 h-10 bg-white text-black rounded-full font-bold text-lg">
+          <div className="flex items-center justify-center w-10 h-10 bg-white text-black rounded-full font-bold text-lg shadow-lg">
             S
           </div>
 

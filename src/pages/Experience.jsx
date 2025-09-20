@@ -6,7 +6,7 @@ const Experience = () => {
     {
       id: 1,
       title: "Full Stack",
-      company: "Internship",
+      company: "Internship @CareSphere",
       period: "September 2025",
       type: "Upcoming",
       description: "",
@@ -17,7 +17,7 @@ const Experience = () => {
   return (
     <div id="experience" className="bg-black text-white py-20 overflow-x-hidden">
       <div className="max-w-4xl mx-auto px-6">
-        {/* Experience Badge */}
+   
         <motion.div
           className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 rounded-full px-4 py-2 mb-8"
           initial={{ opacity: 0, y: 20 }}
@@ -28,7 +28,6 @@ const Experience = () => {
           <span className="text-orange-400 text-sm font-medium">Experience</span>
         </motion.div>
 
-        {/* Section Header */}
         <motion.div
           className="mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -41,7 +40,7 @@ const Experience = () => {
           </p>
         </motion.div>
 
-        {/* Experience Timeline */}
+ 
         <div className="space-y-8">
           {experiences.map((experience, index) => (
             <motion.div
@@ -51,10 +50,10 @@ const Experience = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 + index * 0.1, ease: [0.22, 0.61, 0.36, 1] }}
             >
-              {/* Experience Card */}
+   
               <div className="bg-gray-900/30 border border-gray-800 rounded-xl p-6 hover:border-gray-700 hover:bg-gray-900/40 transition-all duration-300 group-hover:transform group-hover:-translate-y-1">
                 
-                {/* Header */}
+           
                 <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                   <div className="mb-2 md:mb-0">
                     <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors duration-200 flex items-center gap-2">
@@ -85,12 +84,11 @@ const Experience = () => {
                   </div>
                 </div>
                 
-                {/* Description */}
                 <p className="text-gray-300 text-sm leading-relaxed mb-4">
                   {experience.description}
                 </p>
-                
-                {/* Skills */}
+                  
+                 
                 <div className="flex flex-wrap gap-2">
                   {experience.skills.map((skill, skillIndex) => (
                     <span 
@@ -106,8 +104,6 @@ const Experience = () => {
           ))}
         </div>
 
-        {/* Bottom Section */}
-       
       </div>
     </div>
   )
