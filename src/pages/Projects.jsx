@@ -1,244 +1,145 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
 
 const Projects = () => {
-  const [hoveredProject, setHoveredProject] = useState(null)
-
   const projects = [
     {
       id: 1,
-      title: "EcoSync",
-      subtitle: "Sustainability Intelligence",
-      description: "Advanced sustainability intelligence platform for mining and metallurgy industries. Features real-time environmental monitoring, compliance tracking, and AI-powered impact analysis with predictive risk intelligence.",
-      image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=800&q=80", // Environmental/sustainability theme
-      link: "https://ecosync-five.vercel.app/",
-      tech: ["React", "AI/ML", "Real-time Analytics", "Environmental Data"],
-      category: "SaaS Platform",
-      stats: { accuracy: "98.5%", monitoring: "24/7", integration: "95%" },
-      color: "#10B981", // Emerald green for sustainability
-      gradient: "from-emerald-500/20 to-green-600/20"
+      name: "Capsule",
+      description: "A Web3 based platform to message your future self - talk to them, give advice, share anything and lock it until the time comes. Deployed on L1 Testnet EVM Blockchain.",
+      image: "/capsule.jpg",
+      technologies: ["React", "Web3", "Solidity", "EVM Blockchain"],
+      liveUrl: "https://f-letter-two.vercel.app/",
+      githubUrl: "#"
     },
     {
       id: 2,
-      title: "BuildMyDream",
-      subtitle: "Dream Project Builder",
-      description: "A comprehensive platform that helps users build and visualize their dream projects with intuitive tools, collaborative features, and seamless project management capabilities.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80", // Business/planning theme
-      link: "https://buildmydream.vercel.app/",
-      tech: ["React", "Project Management", "Visualization", "Collaboration"],
-      category: "Productivity Tool",
-      stats: { users: "10K+", projects: "50K+", satisfaction: "96%" },
-      color: "#3B82F6", // Blue for productivity
-      gradient: "from-blue-500/20 to-indigo-600/20"
+      name: "Cryptic",
+      description: "A platform that implements steganography where you can encode a message in the pixels of an image and reveal it using a key only.",
+      image: "/cryptic.jpg",
+      technologies: ["React", "Steganography", "Image Processing", "Cryptography"],
+      liveUrl: "https://cryptic-one.vercel.app/",
+      githubUrl: "#"
     },
     {
       id: 3,
-      title: "F-Letter",
-      subtitle: "Creative Typography Platform",
-      description: "An innovative platform focused on creative typography and letter design, offering unique tools for designers and creative professionals to craft stunning typographic experiences.",
-      image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=800&q=80", // Design/typography theme
-      link: "https://f-letter-two.vercel.app/",
-      tech: ["React", "Typography Engine", "Design Tools", "Creative Suite"],
-      category: "Design Platform",
-      stats: { fonts: "500+", designs: "25K+", downloads: "100K+" },
-      color: "#8B5CF6", // Purple for creativity
-      gradient: "from-purple-500/20 to-violet-600/20"
+      name: "Agency",
+      description: "An agency site built for my freelance and dev team for a one stop reach out and organisation.",
+      image: "/agency.jpg",
+      technologies: ["React", "Freelance Platform", "Team Management", "Portfolio"],
+      liveUrl: "https://buildmydream.vercel.app/",
+      githubUrl: "#"
     },
     {
       id: 4,
-      title: "Cryptic",
-      subtitle: "Blockchain Analytics",
-      description: "Advanced blockchain analytics and cryptocurrency tracking platform with real-time market data, portfolio management, and sophisticated trading insights for crypto enthusiasts.",
-      image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&q=80", // Crypto/blockchain theme
-      link: "https://cryptic-one.vercel.app/",
-      tech: ["React", "Blockchain APIs", "Real-time Data", "Analytics"],
-      category: "FinTech Platform",
-      stats: { coins: "15K+", accuracy: "99.2%", uptime: "99.9%" },
-      color: "#F59E0B", // Amber/gold for crypto
-      gradient: "from-amber-500/20 to-orange-600/20"
+      name: "EcoSync",
+      description: "A dashboard frontend that visualises a mine's LCA (Life Cycle Assessment) and circularity assessment and maintenance.",
+      image: "/dashboard.jpg",
+      technologies: ["React", "Data Visualization", "LCA Analysis", "Dashboard"],
+      liveUrl: "https://ecosync-five.vercel.app/",
+      githubUrl: "#"
     }
   ]
 
   return (
-    <div className="relative flex flex-col w-full bg-black text-white">
-      {/* Same background as other pages */}
-      <div
-        aria-hidden="true"
-        className="fixed inset-0 z-0 pointer-events-none"
-        style={{
-          background: "#000000",
-          backgroundImage: `
-            radial-gradient(circle at 1px 1px, rgba(139, 92, 246, 0.2) 1px, transparent 0),
-            radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.18) 1px, transparent 0),
-            radial-gradient(circle at 1px 1px, rgba(236, 72, 153, 0.15) 1px, transparent 0)
-          `,
-          backgroundSize: "20px 20px, 30px 30px, 25px 25px",
-          backgroundPosition: "0 0, 10px 10px, 15px 5px",
-        }}
-      />
+    <div id="projects" className="bg-black text-white py-20 overflow-x-hidden">
+      <div className="max-w-4xl mx-auto px-6">
+        {/* Projects Badge */}
+        <motion.div
+          className="inline-flex items-center gap-2 bg-pink-500/10 border border-pink-500/20 rounded-full px-4 py-2 mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
+        >
+          <div className="w-2 h-2 bg-pink-400 rounded-full animate-pulse"></div>
+          <span className="text-pink-400 text-sm font-medium">Projects</span>
+        </motion.div>
 
-      <div className="relative z-10 flex-1 flex flex-col">
-        <div className="flex-1 px-6 pt-24 pb-8">
-          <div className="w-full ml-20">
-            {/* Header Section */}
+        {/* Section Header */}
+        <motion.div
+          className="mb-16"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 0.61, 0.36, 1] }}
+        >
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">My Projects</h2>
+          <p className="text-gray-400 text-lg max-w-2xl">
+            Explore some of the projects I've worked on. These showcase my skills and expertise in various domains of software development.
+          </p>
+        </motion.div>
+
+        {/* Projects Grid */}
+        <div className="space-y-8">
+          {projects.map((project, index) => (
             <motion.div
-              className="mb-12 transform ml-4 sm:ml-6 md:ml-8"
+              key={project.id}
+              className="group"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
+              transition={{ duration: 0.6, delay: 0.2 + index * 0.1, ease: [0.22, 0.61, 0.36, 1] }}
             >
-              <h1 className="text-[70px] sm:text-[100px] font-extrabold text-sky-300 mb-6 tracking-wide" 
-                  style={{WebkitTextStroke: '2px white', textStroke: '2px white'}}>
-                Projects
-              </h1>
-              <div className="h-[2px] w-24 bg-gradient-to-r from-sky-300 to-transparent"></div>
-              <p className="text-slate-400 mt-8 text-lg max-w-2xl">
-                A showcase of innovative solutions I've built across web2, web3, and emerging technologies
-              </p>
-            </motion.div>
-
-            {/* Projects Grid */}
-            <div className="px-8 relative">
-              {/* Subtle background fade */}
-              <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute inset-0 bg-gradient-radial from-slate-800/15 via-slate-900/8 to-transparent"></div>
-                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-slate-900/5 to-transparent"></div>
-                <div className="absolute inset-0 bg-gradient-radial from-sky-900/4 via-transparent to-transparent"></div>
-              </div>
-              
-              <div className="relative z-10 py-12">
-                <div className="grid md:grid-cols-2 gap-8 max-w-7xl mx-auto">
-                  {projects.map((project, index) => (
-                    <motion.div
-                      key={project.id}
-                      className="relative group cursor-pointer"
-                      onMouseEnter={() => setHoveredProject(index)}
-                      onMouseLeave={() => setHoveredProject(null)}
-                      onClick={() => window.open(project.link, '_blank')}
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ 
-                        duration: 0.6, 
-                        delay: index * 0.15,
-                        ease: [0.22, 0.61, 0.36, 1] 
-                      }}
-                      whileHover={{ 
-                        y: -8,
-                        transition: { duration: 0.3, ease: "easeOut" }
-                      }}
-                    >
-                      {/* Project Card */}
-                      <div className={`bg-gradient-to-br from-slate-800/30 via-slate-900/40 to-slate-800/30 backdrop-blur-sm border border-white/10 rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 group-hover:border-sky-300/30 group-hover:shadow-sky-400/10 group-hover:shadow-2xl h-[580px] flex flex-col`}>
-                        
-                        {/* Project Image */}
-                        <div className="relative h-48 overflow-hidden">
-                          <img 
-                            src={project.image} 
-                            alt={project.title}
-                            className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                          
-                          {/* Category Badge */}
-                          <div className="absolute top-4 left-4">
-                            <span className="px-3 py-1 text-xs font-medium bg-black/50 backdrop-blur-sm border border-white/20 rounded-full text-slate-200">
-                              {project.category}
-                            </span>
-                          </div>
-                          
-                          {/* External Link Icon */}
-                          <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                            <div className="w-8 h-8 bg-black/50 backdrop-blur-sm border border-white/20 rounded-full flex items-center justify-center">
-                              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                              </svg>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Project Content */}
-                        <div className="flex-1 p-6 flex flex-col">
-                          {/* Title & Subtitle */}
-                          <div className="mb-4">
-                            <h3 className="text-2xl font-bold text-white mb-1 group-hover:text-sky-300 transition-colors duration-300">
-                              {project.title}
-                            </h3>
-                            <p className="text-sky-400 font-medium text-sm">
-                              {project.subtitle}
-                            </p>
-                          </div>
-
-                          {/* Description */}
-                          <p className="text-slate-300 text-sm leading-relaxed mb-6 flex-1">
-                            {project.description}
-                          </p>
-
-                          {/* Tech Stack */}
-                          <div className="mb-4">
-                            <div className="flex flex-wrap gap-2">
-                              {project.tech.map((tech, techIndex) => (
-                                <span 
-                                  key={techIndex}
-                                  className="px-2 py-1 text-xs bg-slate-800/50 border border-slate-700/50 rounded-md text-slate-300"
-                                >
-                                  {tech}
-                                </span>
-                              ))}
-                            </div>
-                          </div>
-
-                          {/* Stats */}
-                          <div className="grid grid-cols-3 gap-3 pt-4 border-t border-slate-700/30">
-                            {Object.entries(project.stats).map(([key, value], statIndex) => (
-                              <div key={statIndex} className="text-center">
-                                <div className="text-lg font-bold text-sky-300">
-                                  {value}
-                                </div>
-                                <div className="text-xs text-slate-400 capitalize">
-                                  {key}
-                                </div>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Hover Glow Effect */}
-                      {hoveredProject === index && (
-                        <motion.div
-                          className="absolute -inset-1 rounded-3xl pointer-events-none"
-                          style={{
-                            background: `radial-gradient(circle, ${project.color}20 0%, ${project.color}10 40%, transparent 70%)`,
-                            boxShadow: `0 0 40px ${project.color}30, 0 0 80px ${project.color}20`,
-                          }}
-                          initial={{ opacity: 0, scale: 0.95 }}
-                          animate={{ opacity: 1, scale: 1 }}
-                          exit={{ opacity: 0, scale: 0.95 }}
-                          transition={{ duration: 0.4, ease: "easeOut" }}
-                        />
-                      )}
-                    </motion.div>
-                  ))}
+              {/* Project Card */}
+              <div className="grid md:grid-cols-2 gap-6 bg-gray-900/30 border border-gray-800 rounded-xl overflow-hidden hover:border-gray-700 hover:bg-gray-900/40 transition-all duration-300 group-hover:transform group-hover:-translate-y-1">
+                {/* Project Image */}
+                <div className="aspect-video md:aspect-square p-6 flex items-center justify-center">
+                  <img 
+                    src={project.image}
+                    alt={project.name}
+                    className="max-w-full max-h-full object-contain rounded-lg group-hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
-              </div>
-
-              {/* Bottom CTA Section */}
-              <motion.div
-                className="mt-16 text-center"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.2, ease: [0.22, 0.61, 0.36, 1] }}
-              >
-                <div className="bg-slate-900/20 backdrop-blur-sm border border-white/10 rounded-2xl p-8 max-w-2xl mx-auto">
-                  <h3 className="text-xl font-bold text-sky-300 mb-4">More Projects Coming Soon</h3>
-                  <p className="text-slate-400 leading-relaxed">
-                    I'm constantly building and experimenting with new technologies. 
-                    Check back for more innovative solutions and creative projects!
+                
+                {/* Project Content */}
+                <div className="p-6 flex flex-col justify-center">
+                  <div className="flex items-start justify-between mb-4">
+                    <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors duration-200">
+                      {project.name}
+                    </h3>
+                    <div className="flex items-center gap-3">
+                      <a 
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-400 hover:text-white transition-colors duration-200"
+                        title="View Live Project"
+                      >
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                      <a 
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-400 hover:text-white transition-colors duration-200"
+                        title="View Source Code"
+                      >
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                  
+                  <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                    {project.description}
                   </p>
+                  
+                  {/* Technologies */}
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech, techIndex) => (
+                      <span 
+                        key={techIndex}
+                        className="px-2 py-1 text-xs bg-gray-800 text-gray-300 rounded font-medium"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </motion.div>
-            </div>
-          </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </div>

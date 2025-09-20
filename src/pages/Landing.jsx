@@ -1,193 +1,215 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import Navbar from '../components/Navbar'
-import { Button } from '../components/ui/moving-border'
 
 const Landing = () => {
   return (
-    <div className="relative min-h-screen flex flex-col w-full bg-black text-white"> {/*bg-neutral slate*/}
-      <div
-        aria-hidden="true"
-        className="fixed inset-0 z-0 pointer-events-none"
-        style={{
-          background: "#000000",
-          backgroundImage: `
-            radial-gradient(circle at 1px 1px, rgba(139, 92, 246, 0.2) 1px, transparent 0),
-            radial-gradient(circle at 1px 1px, rgba(59, 130, 246, 0.18) 1px, transparent 0),
-            radial-gradient(circle at 1px 1px, rgba(236, 72, 153, 0.15) 1px, transparent 0)
-          `,
-          backgroundSize: "20px 20px, 30px 30px, 25px 25px",
-          backgroundPosition: "0 0, 10px 10px, 15px 5px",
-        }}
-      />
-      <div className="relative z-10 flex-1 flex flex-col">
-      <div className="w-full px-6">
-        <Navbar />
+    <div id="intro" className="min-h-screen bg-black text-white overflow-x-hidden">
+      <Navbar />
+      
+      {/* Hero Section */}
+      <div className="max-w-4xl mx-auto px-6 pt-32">
+        {/* Introduction Badge */}
+        <motion.div
+          className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full px-4 py-2 mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
+        >
+          <div className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
+          <span className="text-emerald-400 text-sm font-medium">Introduction</span>
+        </motion.div>
+
+        {/* Main Heading */}
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 0.61, 0.36, 1] }}
+        >
+          <h1 className="text-6xl md:text-7xl font-bold mb-6">
+            Hi, I'm Samarth
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-400 leading-relaxed max-w-3xl">
+            A Full Stack Developer passionate about crafting seamless digital experiences
+          </p>
+        </motion.div>
+
+        {/* Skills Summary */}
+        <motion.div
+          className="mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 0.61, 0.36, 1] }}
+        >
+          <p className="text-gray-300 text-lg leading-relaxed mb-6">
+            I specialize in building web apps with{' '}
+            <span className="text-blue-400 font-semibold">React</span>,{' '}
+            <span className="text-yellow-400 font-semibold">JavaScript</span>,{' '}
+            <span className="text-cyan-400 font-semibold">Tailwind CSS</span>,{' '}
+            <span className="text-green-400 font-semibold">Node.js</span> and more.
+          </p>
+          <p className="text-gray-400">
+            Always excited to tackle new challenges where I can create value and grow as a coder. Let's connect if you've got a project that could use my skills!
+          </p>
+        </motion.div>
+
+        {/* CTA Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 0.61, 0.36, 1] }}
+        >
+          <button
+            className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-blue-500/25"
+            onClick={() => {
+              // Create and download resume
+              const link = document.createElement('a')
+              link.href = '/resume.pdf' // You'll need to add your resume PDF to the public folder
+              link.download = 'Samarth_Srivastava_Resume.pdf'
+              link.click()
+            }}
+          >
+            Resume
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+          </button>
+        </motion.div>
       </div>
 
-      <div className='w-full mt-16'>
-        <div className='w-full px-6 flex items-center justify-center'>
+      {/* Skills Preview Section */}
+      <div id="skills" className="max-w-4xl mx-auto px-6 pt-32 pb-20">
+        {/* Skills Badge */}
+        <motion.div
+          className="inline-flex items-center gap-2 bg-purple-500/10 border border-purple-500/20 rounded-full px-4 py-2 mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 0.61, 0.36, 1] }}
+        >
+          <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
+          <span className="text-purple-400 text-sm font-medium">Skills</span>
+        </motion.div>
+
+        <motion.h2
+          className="text-4xl md:text-5xl font-bold mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.5, ease: [0.22, 0.61, 0.36, 1] }}
+        >
+          Skills I have
+        </motion.h2>
+
+        <motion.p
+          className="text-gray-400 text-lg mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
+        >
+          Technologies and tools I've worked with and enjoy using
+        </motion.p>
+
+        {/* Skills Categories */}
+        <div className="space-y-12">
+          {/* Languages */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.22, 0.61, 0.36, 1] }}
+            transition={{ duration: 0.6, delay: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
           >
-            <Button
-              borderRadius="1.75rem"
-              className="bg-slate-900/[0.8] border border-slate-800 text-white text-lg font-semibold tracking-wider h-20 w-96"
-              containerClassName="h-20 w-96"
-              borderClassName="h-20 w-20 opacity-[0.8] bg-[radial-gradient(var(--amber-500)_40%,transparent_60%)]"
-              duration={3000}
-            >
-              Hey there, I'm SAMARTH SRIVASTAVA
-            </Button>
-          </motion.div>
-        </div>
-      </div>
-
-      <div className="px-6 flex-1">
-        <div className="w-full ml-20 flex items-center ">
-          {/* Left: Headings */}
-          <div className="flex-1 transform ml-4 sm:ml-6 md:ml-8 -translate-y-8 lg:-translate-y-[20px]">
-            <div className="bg-transparent space-y-6 tracking-[8px]">
-              <motion.p
-                className="text-sky-300 text-[71px] sm:text-[103px] md:text-[135px] font-extrabold font-mono leading-[0.9] drop-shadow-[0_2px_0_rgba(0,0,0,0.25)]"
-                style={{WebkitTextStroke: '2px white', textStroke: '2px white'}}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.35, delay: 0.05, ease: [0.22, 0.61, 0.36, 1] }}
-              >
-                A web & app
-              </motion.p>
-              <motion.p
-                className="text-sky-300 text-[71px] sm:text-[103px] md:text-[135px] font-extrabold font-mono leading-[0.9]"
-                style={{WebkitTextStroke: '2px white', textStroke: '2px white'}}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.35, delay: 0.15, ease: [0.22, 0.61, 0.36, 1] }}
-              >
-                developer
-              </motion.p>
+            <h3 className="text-white font-semibold mb-6 flex items-center gap-2">
+              <span className="text-lg">•</span> Languages
+            </h3>
+            <div className="flex flex-wrap gap-4">
+              {[
+                { name: 'C', color: 'text-blue-400', bg: 'bg-blue-400/10 border-blue-400/20' },
+                { name: 'C++', color: 'text-blue-300', bg: 'bg-blue-300/10 border-blue-300/20' },
+                { name: 'Java', color: 'text-red-400', bg: 'bg-red-400/10 border-red-400/20' },
+                { name: 'Python', color: 'text-green-400', bg: 'bg-green-400/10 border-green-400/20' },
+                { name: 'JavaScript', color: 'text-yellow-400', bg: 'bg-yellow-400/10 border-yellow-400/20' },
+                { name: 'TypeScript', color: 'text-blue-400', bg: 'bg-blue-400/10 border-blue-400/20' },
+                { name: 'SQL', color: 'text-purple-400', bg: 'bg-purple-400/10 border-purple-400/20' },
+                { name: 'Solidity', color: 'text-gray-300', bg: 'bg-gray-300/10 border-gray-300/20' },
+                { name: 'Rust', color: 'text-orange-400', bg: 'bg-orange-400/10 border-orange-400/20' }
+              ].map((skill, index) => (
+                <span
+                  key={skill.name}
+                  className={`px-4 py-2 rounded-lg border ${skill.bg} ${skill.color} font-medium text-sm`}
+                >
+                  {skill.name}
+                </span>
+              ))}
             </div>
-            <motion.div
-              className='mt-10 text-[25px] sm:text-[27px] text-slate-300'
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: 0.25, ease: [0.22, 0.61, 0.36, 1] }}
-            >
-              <p>
-                <span className='tracking-[3px] text-white inline-block'>FullStack Dev</span>
-                <span className='ml-[6px] mr-[6px] text-slate-400/80'> | </span>
-                <span className='tracking-[3px] text-white inline-block'>App Dev</span>
-                <span className='ml-[6px] mr-[6px] text-slate-400/80'> | </span>
-                <span className='tracking-[3px] text-white inline-block'>  Blockchain Dev</span>
-              </p>
-            </motion.div>
-          </div>
+          </motion.div>
 
-          {/* Right: Interactive Card Stack */}
+          {/* Technologies & Tools */}
           <motion.div
-            className='mt-5 sm:mt-10 md:mt-20 lg:mt-20 mr-[250px] -translate-y-4'
-            initial={{ opacity: 0, y: 12, scale: 0.98 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.35, delay: 0.35, ease: [0.22, 0.61, 0.36, 1] }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8, ease: [0.22, 0.61, 0.36, 1] }}
           >
-            <RightCardStack />
+            <h3 className="text-white font-semibold mb-6 flex items-center gap-2">
+              <span className="text-lg">•</span> Technologies & Tools
+            </h3>
+            <div className="flex flex-wrap gap-4">
+              {[
+                { name: 'ReactJS', color: 'text-cyan-400', bg: 'bg-cyan-400/10 border-cyan-400/20' },
+                { name: 'Next.js', color: 'text-white', bg: 'bg-white/10 border-white/20' },
+                { name: 'Node.js', color: 'text-green-400', bg: 'bg-green-400/10 border-green-400/20' },
+                { name: 'Express.js', color: 'text-gray-300', bg: 'bg-gray-300/10 border-gray-300/20' },
+                { name: 'NestJS', color: 'text-red-400', bg: 'bg-red-400/10 border-red-400/20' },
+                { name: 'MongoDB', color: 'text-green-400', bg: 'bg-green-400/10 border-green-400/20' },
+                { name: 'PostgreSQL', color: 'text-blue-400', bg: 'bg-blue-400/10 border-blue-400/20' },
+                { name: 'VS Code', color: 'text-blue-400', bg: 'bg-blue-400/10 border-blue-400/20' },
+                { name: 'Git', color: 'text-red-400', bg: 'bg-red-400/10 border-red-400/20' },
+                { name: 'GitHub', color: 'text-gray-300', bg: 'bg-gray-300/10 border-gray-300/20' },
+                { name: 'Solana SDK', color: 'text-purple-400', bg: 'bg-purple-400/10 border-purple-400/20' },
+                { name: 'HTML', color: 'text-orange-400', bg: 'bg-orange-400/10 border-orange-400/20' },
+                { name: 'Tailwind', color: 'text-cyan-300', bg: 'bg-cyan-300/10 border-cyan-300/20' },
+                { name: 'Bootstrap', color: 'text-purple-400', bg: 'bg-purple-400/10 border-purple-400/20' },
+                { name: 'FastAPI', color: 'text-green-400', bg: 'bg-green-400/10 border-green-400/20' },
+                { name: 'Django', color: 'text-green-400', bg: 'bg-green-400/10 border-green-400/20' },
+                { name: 'React Native', color: 'text-blue-400', bg: 'bg-blue-400/10 border-blue-400/20' }
+              ].map((skill, index) => (
+                <span
+                  key={skill.name}
+                  className={`px-4 py-2 rounded-lg border ${skill.bg} ${skill.color} font-medium text-sm`}
+                >
+                  {skill.name}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Domains & Expertise */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.9, ease: [0.22, 0.61, 0.36, 1] }}
+          >
+            <h3 className="text-white font-semibold mb-6 flex items-center gap-2">
+              <span className="text-lg">•</span> Domains & Expertise
+            </h3>
+            <div className="flex flex-wrap gap-4">
+              {[
+                { name: 'Web Development', color: 'text-cyan-400', bg: 'bg-cyan-400/10 border-cyan-400/20' },
+                { name: 'Blockchain Development (Solana, Ethereum)', color: 'text-purple-400', bg: 'bg-purple-400/10 border-purple-400/20' },
+                { name: 'App Development', color: 'text-blue-400', bg: 'bg-blue-400/10 border-blue-400/20' },
+                { name: 'Data Structures & Algorithm', color: 'text-green-400', bg: 'bg-green-400/10 border-green-400/20' }
+              ].map((skill, index) => (
+                <span
+                  key={skill.name}
+                  className={`px-4 py-2 rounded-lg border ${skill.bg} ${skill.color} font-medium text-sm`}
+                >
+                  {skill.name}
+                </span>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>
-      </div>
-        
-      
     </div>
   )
 }
-
-// Right-side card stack component
-const RightCardStack = () => {
-  const [front, setFront] = useState('resume') //resume n socials
-
-  const commonCard = 'absolute rounded-2xl border border-white/30 bg-black/60 backdrop-blur-sm text-white shadow-[0_8px_40px_rgba(0,0,0,0.6)] select-none'
-  const cardSize = 'w-[360px] h-[520px]'
-
-  return (
-    <div className="relative w-[420px] h-[560px] -mt-[24px] -ml-[20px]">
-   
-      <button
-        onClick={() => setFront('socials')}
-        className={`${commonCard} ${cardSize} ${front === 'socials' ? 'z-20 rotate-[-2deg] translate-x-[18px] translate-y-[8px]' : 'z-10 rotate-[-8deg] -translate-x-[6px] translate-y-[24px] opacity-80 hover:opacity-100 border-cyan-200/70 shadow-[0_0_32px_rgba(165,243,252,0.35)]'} transition-transform duration-300 ease-out hover:scale-[1.02]`}
-        aria-label="Show socials card"
-      >
-        <div className="p-6 flex flex-col h-full">
-          <div className="text-xl tracking-widest uppercase text-blue-300">Socials</div>
-          <div className="mt-4 h-px bg-gradient-to-r from-cyan-400/50 via-cyan-300/25 to-transparent"></div>
-
-          <div className="mt-6 flex flex-col items-center text-center space-y-4 text-lg">
-            <a href="https://github.com/samarthSrivastavaa" target="_blank" rel="noreferrer" className="block group text-white hover:text-cyan-200 transition-colors">
-              <span className="border-b border-white/60 group-hover:border-cyan-300 transition-colors">GitHub</span>
-            </a>
-            <a href="https://www.linkedin.com/in/samarth-srivastava-426051283?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noreferrer" className="block group text-white hover:text-cyan-200 transition-colors">
-              <span className="border-b border-white/60 group-hover:border-cyan-300 transition-colors">LinkedIn</span>
-            </a>
-            <a href="https://x.com/SamarthS_1101" target="_blank" rel="noreferrer" className="block group text-white hover:text-cyan-200 transition-colors">
-              <span className="border-b border-white/60 group-hover:border-cyan-300 transition-colors">X (Twitter)</span>
-            </a>
-          </div>
-
-          <div className="mt-6 text-sm italic text-white/90">feel free to reach out</div>
-        </div>
-      </button>
-
-     
-      <button
-        onClick={() => setFront('resume')}
-        className={`${commonCard} ${cardSize} ${front === 'resume' ? 'z-30 rotate-[4deg] -translate-x-[6px]' : 'z-10 rotate-[10deg] translate-x-[24px] translate-y-[14px] opacity-80 hover:opacity-100 border-cyan-200/70 shadow-[0_0_32px_rgba(165,243,252,0.35)]'} transition-transform duration-300 ease-out hover:scale-[1.02]`}
-        aria-label="Show resume card"
-      >
-        <div className="p-6 flex flex-col h-full">
-          <div className="text-xl tracking-widest uppercase text-blue-300">Resume</div>
-          <div className="mt-4 h-px bg-gradient-to-r from-cyan-400/50 via-cyan-300/25 to-transparent"></div>
-
-          <div className="mt-6 space-y-2">
-            <div className="text-2xl font-bold tracking-wide text-white">Samarth Srivastava</div>
-            <div className="text-cyan-200">Web & App Developer</div>
-            <div className="text-cyan-200/80 text-sm">FullStack • App • Blockchain</div>
-          </div>
-
-          <div className="mt-6">
-            <p className="text-sm leading-relaxed opacity-90">
-              Hi there, I'm Samarth Srivastava-an undergrad at IIIT Sonepat. I love to build
-              and design web and mobile apps, and am currently working across
-              blockchain projects as well.
-            </p>
-            <p className="text-yellow-300 mt-4 text-sm opacity-80">
-              Blockchains: EVM chains, Solana
-            </p>
-            <p className="text-yellow-300 mt-4 text-sm opacity-80">
-              Web: MERN ,Next.js, Nest.Js
-            </p>
-            <p className="text-yellow-300 mt-4 text-sm opacity-80">
-              App: React Native
-            </p>
-          </div>
-
-          <div className="mt-auto">
-            <a
-              href="#resume"
-              className="inline-flex items-center gap-2 border border-cyan-400/60 px-4 py-2 rounded-lg hover:border-cyan-300 text-white hover:text-cyan-200 transition-colors"
-            >
-              <span>View Resume</span>
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-cyan-200">
-                <path d="M7 17L17 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                <path d="M8 7H17V16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </button>
-    </div>
-  )
-}
-
 
 export default Landing

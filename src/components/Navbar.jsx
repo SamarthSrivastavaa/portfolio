@@ -1,70 +1,67 @@
 import React, { useState } from 'react'
 import { motion } from 'framer-motion'
-import { cn } from '../lib/utils'
 
 const Navbar = () => {
-  const [activeTab, setActiveTab] = useState("ABOUT")
+  const [activeTab, setActiveTab] = useState("Intro")
 
   const navItems = [
-    { name: "ABOUT", url: "#about" },
-    { name: "PROJECTS", url: "#projects" },
-    { name: "SOCIALS", url: "#socials" },
-    { name: "REACH OUT", url: "#contact" }
+    { name: "Intro", url: "#intro" },
+    { name: "Skills", url: "#skills" },
+    { name: "Projects", url: "#projects" },
+    { name: "Experience", url: "#experience" },
+    { name: "Contact", url: "#contact" }
   ]
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
-    <div className='pt-16 ml-6 flex justify-between items-center w-full pr-6'>
-      {/* Navigation Items with Lamp Effect - Increased Size */}
-      <div className="flex items-center gap-6 bg-black/20 border border-slate-800/50 backdrop-blur-lg py-3 px-5 rounded-full shadow-lg">
-        {navItems.map((item) => {
-          const isActive = activeTab === item.name
+    <div className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-md border-b border-gray-800">
+      <div className="max-w-6xl mx-auto px-6 py-4">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <div className="flex items-center justify-center w-10 h-10 bg-white text-black rounded-full font-bold text-lg">
+            S
+          </div>
 
-          return (
-            <a
-              key={item.name}
-              href={item.url}
-              onClick={() => setActiveTab(item.name)}
-              className={cn(
-                "relative cursor-pointer text-base font-semibold px-8 py-3 rounded-full transition-colors tracking-wider font-poppins",
-                "text-white/80 hover:text-sky-300",
-                isActive && "bg-slate-800/30 text-sky-300"
-              )}
-            >
-              <span>{item.name}</span>
-              {isActive && (
-                <motion.div
-                  layoutId="lamp"
-                  className="absolute inset-0 w-full bg-sky-500/10 rounded-full -z-10"
-                  initial={false}
-                  transition={{
-                    type: "spring",
-                    stiffness: 300,
-                    damping: 30,
+          {/* Navigation Items */}
+          <nav className="hidden md:flex items-center space-x-8">
+            {navItems.map((item) => {
+              const isActive = activeTab === item.name
+
+              return (
+                <button
+                  key={item.name}
+                  onClick={() => {
+                    setActiveTab(item.name)
+                    scrollToSection(item.url.slice(1))
                   }}
+                  className={`text-sm font-medium transition-colors duration-200 ${
+                    isActive 
+                      ? 'text-white' 
+                      : 'text-gray-400 hover:text-white'
+                  }`}
                 >
-                  <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-1 bg-sky-400 rounded-t-full">
-                    <div className="absolute w-12 h-6 bg-sky-400/30 rounded-full blur-md -top-2 -left-2" />
-                    <div className="absolute w-8 h-6 bg-sky-400/20 rounded-full blur-md -top-1" />
-                    <div className="absolute w-4 h-4 bg-sky-400/20 rounded-full blur-sm top-0 left-2" />
-                  </div>
-                </motion.div>
-              )}
-            </a>
-          )
-        })}
-      </div>
+                  {item.name}
+                </button>
+              )
+            })}
+          </nav>
 
-      {/* Name Box on the Right */}
-      <div className="bg-gradient-to-r from-sky-500/10 to-blue-600/10 border border-sky-400/30 backdrop-blur-lg px-12 py-5 rounded-2xl shadow-lg -translate-y-1">
-        <div className="text-sky-300 font-bold text-base tracking-wider font-poppins text-center">
-          SAMARTH SRIVASTAVA
+          {/* Mobile Menu Button */}
+          <button className="md:hidden text-gray-400 hover:text-white">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
         </div>
-        <div className="h-[1px] w-full bg-gradient-to-r from-sky-400/50 via-sky-300/30 to-transparent mt-2"></div>
       </div>
     </div>
   )
 }
 
 export default Navbar
-
-
