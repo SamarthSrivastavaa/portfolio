@@ -10,7 +10,7 @@ const Projects = () => {
       image: "/capsule.jpg",
       technologies: ["React", "Web3", "Solidity", "EVM Blockchain"],
       liveUrl: "https://f-letter-two.vercel.app/",
-      githubUrl: "#"
+      githubUrl: "https://github.com/SamarthSrivastavaa/fLetter"
     },
     {
       id: 2,
@@ -19,7 +19,7 @@ const Projects = () => {
       image: "/cryptic.jpg",
       technologies: ["React", "Steganography", "Image Processing", "Cryptography"],
       liveUrl: "https://cryptic-one.vercel.app/",
-      githubUrl: "#"
+      githubUrl: "https://github.com/SamarthSrivastavaa/stegano"
     },
     {
       id: 3,
@@ -28,7 +28,7 @@ const Projects = () => {
       image: "/agency.jpg",
       technologies: ["React", "Freelance Platform", "Team Management", "Portfolio"],
       liveUrl: "https://buildmydream.vercel.app/",
-      githubUrl: "#"
+      githubUrl: "https://github.com/SamarthSrivastavaa/agn"
     },
     {
       id: 4,
@@ -37,7 +37,7 @@ const Projects = () => {
       image: "/dashboard.jpg",
       technologies: ["React", "Data Visualization", "LCA Analysis", "Dashboard"],
       liveUrl: "https://ecosync-five.vercel.app/",
-      githubUrl: "#"
+      githubUrl: "https://github.com/SamarthSrivastavaa/ecoSync"
     }
   ]
 
